@@ -10,7 +10,6 @@ distfiles="${MOZILLA_SITE}/${pkgname}/releases/${version}/source/${pkgname}-${ve
 checksum=6f7d284c31383a9860d7b52f05f866526d5a7c31e3ef2959d79122ba074f5ca1
 
 only_for_archs="i686 i686-musl x86_64 x86_64-musl"
-nopie=yes
 lib32disabled=yes
 
 hostmakedepends="autoconf213 unzip zip pkg-config perl python yasm rust cargo

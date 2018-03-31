@@ -1,7 +1,7 @@
 # Template file for 'ImageMagick'
 pkgname=ImageMagick
-_majorver=6.9.9
-_patchver=40
+_majorver=7.0.7
+_patchver=28
 version=${_majorver}.${_patchver}
 revision=1
 wrksrc=${pkgname}-${_majorver}-${_patchver}
@@ -16,7 +16,7 @@ maintainer="Juan RP <xtraeme@voidlinux.eu>"
 homepage="https://www.imagemagick.org/"
 license="ImageMagick"
 distfiles="https://www.imagemagick.org/download/ImageMagick-${_majorver}-${_patchver}.tar.xz"
-checksum=62f25d46bfbcffe00b84e167994d593868a9a47d4defc489a429cae1d6aab9f7
+checksum=e8311c2dd536367808a633aa3f4f0f6b1a34d04ed06b3db59c21d43cab41d4ce
 
 subpackages="libmagick libmagick-devel"
 

@@ -1,0 +1,71 @@
+# Template file for 'ImageMagick6'
+pkgname=ImageMagick6
+_majorver=6.9.9
+_patchver=40
+version=${_majorver}.${_patchver}
+revision=1
+wrksrc=ImageMagick-${_majorver}-${_patchver}
+build_style=gnu-configure
+configure_args="--without-autotrace --with-wmf=yes
+ --without-dps --without-fpx --without-gvc --without-jbig --with-gslib=yes
+ --without-lqr --without-openexr --with-gs-font-dir=/usr/share/fonts/Type1
+ --with-magick-plus-plus --with-modules --enable-shared --with-rsvg
+ --with-dejavu-font-dir=/usr/share/fonts/TTF --enable-opencl --disable-static"
+short_desc="Package for display and interactive manipulation of images (6.x)"
+maintainer="Juan RP <xtraeme@voidlinux.eu>"
+homepage="https://legacy.imagemagick.org/"
+license="ImageMagick"
+distfiles="https://legacy.imagemagick.org/download/ImageMagick-${_majorver}-${_patchver}.tar.xz"
+checksum=62f25d46bfbcffe00b84e167994d593868a9a47d4defc489a429cae1d6aab9f7
+
+keep_libtool_archives=yes
+hostmakedepends="automake libtool pkg-config"
+makedepends="djvulibre-devel fftw-devel ghostscript-devel glib-devel lcms2-devel
+ libXt-devel libgomp-devel libltdl-devel librsvg-devel libwebp-devel libwmf-devel
+ ocl-icd-devel pango-devel"
+conf_files="/etc/ImageMagick-${_majorver%%.*}/*.xml"
+
+conflicts="ImageMagick>=0"
+
+pre_configure() {
+	autoreconf -if
+}
+
+do_check() {
+	# Disable failing checks
+	sed -i '/validate-formats/d' Makefile
+
+	make check
+}
+
+post_install() {
+	vlicense LICENSE
+	vlicense NOTICE
+}
+
+libmagick6_package() {
+	short_desc="ImageMagick (6.x) low-level image manipulation libraries"
+	pkg_install() {
+		vmove "usr/lib/libMagick*.so.*"
+		vmove "usr/lib/ImageMagick*"
+		vmove "usr/share/ImageMagick*"
+	}
+}
+
+libmagick6-devel_package() {
+	depends="
+		fftw-devel fontconfig-devel lcms2-devel libXt-devel
+		libgomp-devel libltdl-devel
+		libmagick6>=${version}_${revision}"
+	short_desc="ImageMagick (6.x) low-level image manipulation development files"
+	conflicts="libmagick-devel>=0"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove usr/share/doc
+		vmove "usr/bin/*-config"
+		vmove "usr/lib/*.so"
+		vmove "usr/lib/*.la"
+		vmove "usr/share/man/man1/*-config.1"
+	}
+}

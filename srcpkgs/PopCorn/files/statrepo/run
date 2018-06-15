@@ -1,5 +1,0 @@
-#!/bin/sh
-
-[ -r ./conf ] && . ./conf
-
-exec chpst -u _popcorn:_popcorn statrepo  --port $PORT --reset_key $KEY

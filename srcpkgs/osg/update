@@ -1,2 +1,0 @@
-pattern='OpenSceneGraph-\K[\d]+\.([\d]+)?[02468]+\.[\d]+(-rc.*)?'
-ignore="*-rc*"

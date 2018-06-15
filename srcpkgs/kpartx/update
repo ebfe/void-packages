@@ -1,1 +1,0 @@
-pattern='multipath-tools-\K[\d.]+\d+'

@@ -1,2 +1,0 @@
-site="https://github.com/smxi/inxi/raw/master/inxi"
-pattern="####  Version: \K.*"

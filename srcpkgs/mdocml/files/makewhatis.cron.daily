@@ -1,3 +1,0 @@
-#!/bin/sh
-makewhatis -a -Tutf8
-exit $?

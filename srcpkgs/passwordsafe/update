@@ -1,2 +1,0 @@
-# Passwordsafe linux port uses "BETA" in release name
-pattern="\K[\d.]+BETA(?=)"

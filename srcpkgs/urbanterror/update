@@ -1,2 +1,0 @@
-site="https://api.github.com/repos/Barbatos/ioq3-for-UrbanTerror-4/tags"
-pattern='release-\K([\d\.]+)'

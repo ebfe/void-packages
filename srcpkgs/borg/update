@@ -1,3 +1,0 @@
-site='https://github.com/borgbackup/borg/releases'
-pattern='borgbackup-\K[\d.rcb]+\d'
-ignore='*rc* *b*'

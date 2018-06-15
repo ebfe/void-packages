@@ -1,2 +1,0 @@
-site="https://invisible-mirror.net/archives/vile/"
-pattern="vile-\K[\d\.]*(?=\.tgz)"
